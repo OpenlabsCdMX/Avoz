@@ -1,0 +1,200 @@
+.floor{
+	padding: 20px 0px;
+}
+/** Overay para la portada **/
+.page-node-8,
+.page-node-9,
+.page-node-42,
+.page-node-43{
+
+	.floor{
+		h2,h3,h4{
+			text-align: center;
+		}
+	}
+	.form-type-checkbox,
+	.form-type-radio{
+		padding: 0px !important;
+	}
+	.webform-client-form{
+		.description{
+				color: #666;
+				font-size: 14px;
+		}
+		#edit-submitted-datos-video-tema-select{
+				margin: 0px 0px 0px 3px;
+			label{
+					color: #333;
+			}
+		}
+	}
+h2{
+		padding-bottom: 30px !important;
+	}
+}
+/** Specific **/
+.page-node-8,
+.page-node-9,
+.page-node-42,
+.page-node-43{
+
+	#edit-field-notes-und-0-format{
+		display: none;
+	}
+
+	.form-item-language{
+		display: none !important;
+	}
+	.form-item-field-locate-und-0-geom{
+		.btn-success{
+				margin-top: 32px;
+		}
+	}
+	.group-video{
+		.field-name-field-country,
+		.field-name-field-state,
+		.field-name-field-city{
+			@extend .col-md-4;
+		}
+	}
+	.floor-color{
+		background-color: #F2F3F5;
+	}
+	.imagen-container{
+		margin-top: 10px;
+	}
+	.floor{
+		&.colored{
+			.container{
+							background: rgba(240, 240, 240, 0.5);
+							padding: 40px 20px;
+			}
+		}
+	}
+	.floor-cero{
+		background: url('../img/llamada/cafe.jpg');
+		h2{
+				color: #273033 !important;
+				text-transform: none;
+		}
+	}
+	.floor-content{
+			background: #fafafa;
+			#edit-field-collaborator-und-form-field-email,
+			#edit-field-collaborator-und-form-field-country-collaborator{
+				@extend .col-sm-6;
+			}
+			#field-video-add-more-wrapper{
+				.panel-heading{
+					margin-bottom: 0px;
+				}
+			}
+	}
+	.floor-footer{
+			padding: 20px 0px;
+	}
+	.webform-component {
+    padding: 12px;
+	}
+	.local-wrapper{
+		margin-top: 25px;
+	}
+	.webform-component--datos-video--local{
+		margin: 0px 12px;
+	}
+	.inverted{
+		color: white !important;
+		h2{
+				color: white !important;
+		}
+	}
+}
+body.navbar-is-fixed-top,
+body.toolbar-drawer.navbar-is-fixed-top{
+	padding-top: 0px !important;
+}
+.webform-component-textarea{
+	.grippie {
+	    display: none;
+	}
+}
+
+.page-node-42,
+.page-node-43{
+	.floor-one{
+		h2{
+			background-repeat: no-repeat;
+			background-position: 50% top;
+			background-size: 180px;
+		}
+		.canoa{
+			margin-top: 20px;
+		}
+	}
+	.floor-two{
+		background: url('../img/llamada/azul.jpg');
+	}
+	.floor-three{
+		.container{
+					background-repeat: no-repeat;
+					background-position: 10% top;
+					background-size: 150px;
+		}
+	}
+	.floor-four{
+		background: url('../img/llamada/rojo.jpg');
+	}
+}
+
+/*
+	Medias
+*/
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.page-node-8,
+	.page-node-9{
+		.floor-one{
+			h2{
+				background: url('../img/llamada/tazon.png');
+				background-repeat: no-repeat;
+				padding-top: 120px;
+				background-position: 50% -30%;
+			}
+		}
+		/*
+		.floor-three{
+			.container{
+				  	background: url('../img/llamada/latinoamerica.jpg');
+						background-repeat: no-repeat;
+						#block-block-5{
+							margin-top: 40px;
+							p{
+								margin-top: 50px;
+							}
+						}
+				}
+		}*/
+		.floor-content{
+				padding-top: 0px !important;
+				#block-formblock-video{
+					padding-top: 130px;
+					background: url('../img/llamada/tambor.png');
+					background-repeat: no-repeat;
+					background-position: 50% top;
+					background-size: 150px;
+				}
+		}
+	}
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+	 }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}

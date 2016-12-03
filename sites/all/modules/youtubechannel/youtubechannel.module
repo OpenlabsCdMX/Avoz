@@ -1,0 +1,148 @@
+<?php
+
+/**
+ * @file
+ * module file for youtubechannel.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function youtubechannel_help($section) {
+  switch ($section) {
+    case 'admin/help#youtubechannel':
+      return t("Youtube Channel let's you have a complete video list of up to'
+	  . ' 50 videos from a YouTube Channel. A Developer's API key is'
+	  . ' required. See the readme.txt for how to obtain one.");
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function youtubechannel_permission() {
+  return array(
+    'administer youtubechannel' => array(
+      'title' => t('Administer Youtube Channel'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function youtubechannel_menu() {
+  $items = array();
+
+  $items['admin/config/services/youtubechannel'] = array(
+    'title' => 'Youtube Channel',
+    'description' => 'Configure the settings to be used for Youtube Channel.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('youtubechannel_settings_form'),
+    'access arguments' => array('administer youtubechannel'),
+    'file' => 'youtubechannel.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function youtubechannel_block_info() {
+  $blocks = array();
+  $blocks[0] = array(
+    'info' => t('Youtube Channel'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function youtubechannel_block_view($delta = '') {
+  $block = array();
+  if ($delta == 0) {
+    $block['subject'] = t('Youtube Channel');
+    $block['content'] = youtubechannel_getview();
+    return $block;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function youtubechannel_theme() {
+  return array(
+    'youtubechannel_videos' => array(
+      'variables' => array('vars' => NULL),
+      'template' => 'youtubechannel_videos',
+    ),
+  );
+}
+
+/**
+ * Function that build the Youtube videos as a Channel.
+ */
+function youtubechannel_getview() {
+  $youtube_id = variable_get('youtubechannel_id', NULL);
+  $max_results = variable_get('youtubechannel_video_limit', 5);
+  $api_key = variable_get('youtubechannel_api_key', NULL);
+
+  drupal_add_css(drupal_get_path('module', 'youtubechannel') . '/css/youtubechannel.css');
+  drupal_add_js(drupal_get_path('module', 'youtubechannel') . '/js/youtubechannel.js');
+
+  /**
+   * NEW API v3 feed
+   */
+  // First, let's fetch the channel feed to get the upload playlist.
+  $path = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id={$youtube_id}&maxResults=1&fields=pageInfo/totalResults,items/contentDetails/relatedPlaylists/uploads&key={$api_key}";
+  $channeljson = drupal_http_request($path);
+
+  // Check we got a proper response.
+  if ($channeljson->code == 200){
+    $channel_data = drupal_json_decode($channeljson->data);
+    $uploads_id = $channel_data['items'][0]['contentDetails']['relatedPlaylists']['uploads'];
+
+  // Now we have the uploads feed ID, let's grab the the actual video feed.
+    $path="https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&}&maxResults={$max_results}&fields=pageInfo/totalResults,items/snippet(resourceId/videoId,title,thumbnails/default/url)&playlistId={$uploads_id}&key={$api_key}";
+
+     $playlistjson = drupal_http_request($path);
+     // Now, let's check that this also gives us a valid response.
+     if ($playlistjson->code == 200){
+
+     $feed_array = drupal_json_decode($playlistjson->data);
+
+       // First, let's look in the feed and check there are some videos.
+       if ($feed_array['pageInfo']['totalResults']==0){
+       return t("Sorry, there are no videos available on this channel.");
+      }
+
+      // Now let's iterate through our items.
+      $videos = array();
+
+      foreach ($feed_array['items'] as $key => $value){
+        $youtube_id = $value['snippet']['resourceId']['videoId'];
+        $title = $value['snippet']['title'];
+        $image_variables = array(
+          'path' => $value['snippet']['thumbnails']['default']['url'],
+          'alt' => $title,
+          'title' => $title,
+        );
+        $thumb = theme('image', $image_variables);
+        $videos[$youtube_id] = $thumb;
+      }
+
+      $vars['width'] = check_plain(variable_get('youtubechannel_video_width', 200));
+      $vars['height'] = check_plain(variable_get('youtubechannel_video_height', 150));
+      $vars['content'] = $videos;
+
+      return theme('youtubechannel_videos', array('vars' => $vars));
+
+    }
+
+  }
+
+  return t("Please configure this section in the !link", array('!link' => l(t('admin page', array()), 'admin/config/services/youtubechannel')));
+}

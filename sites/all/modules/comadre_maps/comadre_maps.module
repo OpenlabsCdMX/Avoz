@@ -1,0 +1,74 @@
+<?php
+
+/*
+	Implements hook_init()
+*/
+
+function comadre_maps_init() {
+		drupal_add_js('/sites/all/libraries/openlayers/OpenLayers.js');
+		drupal_add_css('/sites/all/libraries/openlayers/theme/default/style.css');
+		drupal_add_js('https://maps.googleapis.com/maps/api/js?key=AIzaSyBm7mzZD3SYCZFcUl4XpdVjVCjAOFKPB_E',array('external'));
+
+		module_load_include('inc', 'comadre_maps', 'inc/image-map');
+
+}
+
+/**
+* Implements hook_menu().
+*/
+function comadre_maps_menu() {
+  $items['service/image/%'] = array(
+    'page callback' => 'serviceImageByFID',
+    'page arguments' => array(2),
+	'access arguments' => array('access content'),
+  );
+  return $items;
+}
+
+
+/**
+ * Implements hook_block_info().
+ */
+function comadre_maps_block_info() {
+  $blocks['map_white_bike'] = array(
+    'info' => t('Mapa Bicicleta Blanca'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function comadre_maps_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'map_white_bike':
+      $block['content'] = contentMap();
+      break;
+  }
+
+  return $block;
+}
+
+
+function contentMap(){
+
+
+	//<div class="olControlEditingToolbar olControlNoSelect" role="button"><span class="sr-only">Expandir mapa al cien por ciento de pantalla.</span><div class="olControlFullScreenInactive olButton halflings white fullscreen" aria-hidden="true"></div></div>
+	return '<div id="map-white-bike-wrapper" class="map-wrapper">
+				<div id="white-bike-map" class="white-maps map"></div>
+			<div id="style-controls">
+			<label for="style-select">Visualizar por:</label>
+			<select id="style-select" class="form-control form-select">
+				  <option value="density">Densidad</option>
+				  <option value="sex">Sexo</option>
+				  <option value="cause">Causa</option>
+				  <option value="white_bike">Bici instalada</option>
+				  <option value="range_age">Rango de edad</option>
+			  	</select>
+			</div>
+			</div>
+			';
+}

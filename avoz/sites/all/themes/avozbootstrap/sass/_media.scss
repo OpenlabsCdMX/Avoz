@@ -1,0 +1,20 @@
+@media (max-width:450px){
+	.branding-background .slogan-text {
+		padding-bottom: 16px;
+	}	
+	.row{
+		margin-left: inherit;
+		margin-right: inherit;
+	}
+	
+}
+@media (max-width:768px){
+	.navbar-btn{
+		padding-left: 15px;
+	}
+}
+@media (min-width:768px){
+	.expertis-areas .e-area a p {
+    	padding: 0px 10px;
+	}
+}

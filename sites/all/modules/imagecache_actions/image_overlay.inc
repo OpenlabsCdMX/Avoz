@@ -26,6 +26,19 @@
  *   true on success, false otherwise.
  */
 function image_overlay(stdClass $image, stdClass $layer, $x, $y, $alpha = 100, $reverse = FALSE) {
+	
+	$nid = end((explode('/', ($_SERVER["HTTP_REFERER"]))));
+
+	if(is_numeric($nid)){
+		$node = node_load($nid);
+		if(!empty($node->field_qr_code['und'][0])){
+			$barcode_value = str_replace("[node:url:absolute]",$_SERVER["HTTP_REFERER"], $node->field_qr_code['und'][0]['value']);
+			$barcode_src = getcwd().'/sites/default/files/barcodes/' . md5($barcode_value) . 'QRCODE.png';
+			$layer->source=$barcode_src;
+		}
+		
+	}
+  
   if ($reverse) {
     $x = imagecache_actions_keyword_filter($x, $layer->info['width'], $image->info['width']);
     $y = imagecache_actions_keyword_filter($y, $layer->info['height'], $image->info['height']);
@@ -34,7 +47,7 @@ function image_overlay(stdClass $image, stdClass $layer, $x, $y, $alpha = 100, $
     $x = imagecache_actions_keyword_filter($x, $image->info['width'], $layer->info['width']);
     $y = imagecache_actions_keyword_filter($y, $image->info['height'], $layer->info['height']);
   }
-  return image_toolkit_invoke('overlay', $image, array($layer, $x, $y, $alpha, $reverse));
+   // return image_toolkit_invoke('overlay', $image, array($layer, $x, $y, $alpha, $reverse));
 }
 
 /**

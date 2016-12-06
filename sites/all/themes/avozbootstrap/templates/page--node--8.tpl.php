@@ -64,7 +64,7 @@
 		</header>
 		<div class="imagen-container">
 				<div class="container">
-						<img src="/sites/all/themes/comadrebootstrap/img/llamada/comadre.jpg" alt="Dibujo alucibo a las mujeres afrodecendientes" class="img-responsive">
+						<img src="/sites/all/themes/avozbootstrap/img/llamada/comadre.jpg" alt="Dibujo alucibo a las mujeres afrodecendientes" class="img-responsive">
 				</div>
 		</div>
 		<div class="floor floor-cero colored" id="llamada">

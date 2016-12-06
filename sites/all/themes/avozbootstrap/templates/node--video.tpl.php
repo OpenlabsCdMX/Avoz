@@ -105,9 +105,26 @@ $prefix=$language->prefix;
 	
 	<?php if(!empty($node->field_qr_code['und'][0])) :?>
 			<div class="qr-code text-center">
-				<?php print render($content['field_qr_code']);  ?>
+				<?php
+					print render($content['field_qr_code']);  
+				?>
 			</div>
 	<?php endif; ?>
 	
 	</div>
 </div>
+<?php
+
+		if( !empty($node->field_qr_code['und'][0])&& !empty($node->field_image['und']['0'])){
+			
+			$markup= $content['field_qr_code'][0]['#markup'];
+			$image_url=str_replace("public://","sites/default/files/",$node->field_image['und']['0']['uri']) ;
+				
+			$src = preg_match("<img.*?src=[\"\"'](?<url>.*?)[\"\"'].*?>",$markup,$output);
+			$url_qrcode=substr($output['url'],strpos($output['url'],"sites"));
+			
+		}
+
+?>
+
+

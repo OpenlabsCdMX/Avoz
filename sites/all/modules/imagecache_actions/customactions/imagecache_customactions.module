@@ -269,6 +269,7 @@ function imagecache_subroutine_effect(stdClass $image, array $data) {
   if ($style = image_style_load($data['subroutine_presetname'])) {
     $result = TRUE;
     foreach ($style['effects'] as $effect) {
+		dsm($effect);
       $result = $result && image_effect_apply($image, $effect);
     }
   }

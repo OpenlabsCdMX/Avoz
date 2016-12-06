@@ -63,21 +63,6 @@ h2{
 	.imagen-container{
 		margin-top: 10px;
 	}
-	.floor{
-		&.colored{
-			.container{
-							background: rgba(240, 240, 240, 0.5);
-							padding: 40px 20px;
-			}
-		}
-	}
-	.floor-cero{
-		background: url('../img/llamada/cafe.jpg');
-		h2{
-				color: #273033 !important;
-				text-transform: none;
-		}
-	}
 	.floor-content{
 			background: #fafafa;
 			#edit-field-collaborator-und-form-field-email,
@@ -119,6 +104,33 @@ body.toolbar-drawer.navbar-is-fixed-top{
 	}
 }
 
+#block-formblock-video{
+	padding-top: 40px;
+	.image-widget{
+		.image-widget-data{
+			float: none;
+			input{
+				width: auto;
+				display: inline-block;
+			}
+			button{
+				display: inline-block; 
+			}
+		}
+	}
+	#edit-field-knowlodge-und{
+		display: inline-block;
+		margin-bottom: 20px;
+		.form-item-field-knowlodge-und-260{
+			margin-top: -5px;
+			margin-bottom: 0px;
+		} 
+		.form-type-checkbox{
+			@extend .col-md-4; 
+		}
+	}					
+}
+
 .page-node-42,
 .page-node-43{
 	.floor-one{
@@ -131,18 +143,13 @@ body.toolbar-drawer.navbar-is-fixed-top{
 			margin-top: 20px;
 		}
 	}
-	.floor-two{
-		background: url('../img/llamada/azul.jpg');
-	}
+	
 	.floor-three{
 		.container{
 					background-repeat: no-repeat;
 					background-position: 10% top;
 					background-size: 150px;
 		}
-	}
-	.floor-four{
-		background: url('../img/llamada/rojo.jpg');
 	}
 }
 
@@ -177,13 +184,6 @@ body.toolbar-drawer.navbar-is-fixed-top{
 		}*/
 		.floor-content{
 				padding-top: 0px !important;
-				#block-formblock-video{
-					padding-top: 130px;
-					background: url('../img/llamada/tambor.png');
-					background-repeat: no-repeat;
-					background-position: 50% top;
-					background-size: 150px;
-				}
 		}
 	}
 

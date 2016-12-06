@@ -1,9 +1,0 @@
-{
-    "type": "sftp",
-    "host": "192.168.100.103",
-    "username": "disroot",
-    "password": "d1sr00t",
-    "port": 22,
-    "remotePath": "/var/www/humanamente/sites/all/themes/humanmntbootstrap",
-    "uploadOnSave": true
-}

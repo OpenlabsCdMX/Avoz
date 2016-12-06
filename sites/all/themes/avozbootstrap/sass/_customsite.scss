@@ -8,45 +8,46 @@ a{
 .btn{
 	padding: 3px 12px !important;
 }
-.form-control{
+.form-control[type="text"]{
 	padding: 3px 12px !important;
 	height: 36px;
+	border-radius: 0px;
 }
 .btn{
 	border: none !important;
-	border-radius: 2px !important;
+	border-radius: 0px;
 }
 
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:focus{
-	background: rgba(255,200,74,.8) !important;
-	color: #000 !important;
+	background: rgba(156,39,176,.8) !important;
+	color: #fff !important;
 }
 .btn-primary{
-	background: rgb(255,200,74);
-	color: #000;
+	background: rgb(156,39,176);
+	color: #fff;
 }
 
 .btn-default:hover,
 .btn-default:active,
 .btn-default:focus{
-		background: rgba(94,121,128,.8) !important;
+		background: rgba(233,30,99,.8) !important;
 		color: white !important;
 }
 .btn-default{
-	background: rgb(94,121,128);
+	background: rgb(233,30,99);
 	color: white;
 }
 
 .btn-success:hover,
 .btn-success:active,
 .btn-success:focus{
-		background: rgba(179,106,37,.8);
+		background: rgba(63,81,181,.8);
 
 }
 .btn-success{
-	background: rgb(179,106,37);
+	background: rgb(63,81,181);
 	color: white;
 }
 .checkbox input[type="checkbox"],
@@ -104,7 +105,7 @@ table td{
     &:hover,
     &:focus {
       color: #000;
-      background-color: #ffc84a;
+      background-color: #7B4A94;
       border-color: #e1b042; 
     }
   }
@@ -138,9 +139,10 @@ table td{
 							bottom: 20px;
 						  width: 100%;
 							.box-slide{
-								background: rgb(255,200,74);
+								background: rgba(0,150,136,.75);
 								max-width: 520px;
 								padding: 20px;
+								color: white;
 								.number-views{
 									text-align: right;
 								}
@@ -150,7 +152,7 @@ table td{
 									text-align: left;
 									margin: 0px !important;
 										a{
-											color: #222;
+											color: white;
 
 										}
 									}
@@ -178,21 +180,17 @@ table td{
 		*/
 		#block-views-videos-block-3{
 			> h2{
-				background: url(../img/general/ILL_HOME_DESTAQUE.png);
-		    background-repeat: no-repeat;
-		    padding: 20px 140px 20px 0px;
-		    display: inline-block;
-		    background-position: 100% 50%;
+				
 			}
 		}
 		#block-views-categorys-block-1{
 			> h2{
-			  	background: url(../img/general/ILL_HOME_CATEGORISA.png);
+			  /*	background: url(../img/general/ILL_HOME_CATEGORISA.png);
 					background-repeat: no-repeat;
 					display: inline-block;
 					background-position: 100% 50%;
 					padding: 25px 80px 25px 0px;
-			    background-size: 60px;
+			    background-size: 60px;*/
 			}
 		}
 		.view-display-id-block_5,
@@ -230,12 +228,33 @@ table td{
 			}
 		}
 		#edit-title-wrapper{
-					@extend .col-md-3;
+					@extend .col-md-4;
 					@extend .col-xs-6;
 		}
 		.views-exposed-widget{
-					@extend .col-md-3;
+					@extend .col-md-4;
 					@extend .col-xs-6;
+					&#edit-field-knowlodge-wrapper{
+						@extend .col-xs-12;
+						margin-bottom: 10px;
+					}
+					.form-checkboxes {
+							border: 0px;
+							box-shadow: none;
+							.form-type-bef-checkbox{
+								@extend .col-sm-4;
+								input{
+									display: inline-block;
+									width: auto;
+									box-shadow: none;
+									margin-top: 0px;
+									height: 20px;
+								}
+								label{
+									font-weight: normal;
+								}
+							}
+					}
 		}
 		#edit-submit-videos{
 				margin-top: 33px;
@@ -531,7 +550,7 @@ li.ancla-link.active a{
 		padding: 8px 15px !important;
 		.navbar-header{
 			a{
-					color: #a92010 !important;
+					color: rgb(156,39,176) !important;
 					font-family:'Andada Italic' !important;
 					font-size: 30px;
 					font-weight: bold;
@@ -796,10 +815,10 @@ footer{
 		}
 		.front{
 			.floor-one{
-				background-image: url(../img/general/ILL_HOME_DIR.png), url(../img/general/ILL_HOME_ESQ.png);
+			/*	background-image: url(../img/general/ILL_HOME_DIR.png), url(../img/general/ILL_HOME_ESQ.png);
 				background-position: right center, left center;
 				background-repeat: no-repeat;
-				background-size: 180px;
+				background-size: 180px;*/
 			}
 		}
 }

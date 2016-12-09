@@ -1,5 +1,6 @@
 body{
-	font-family: 'Andada', serif !important;
+	font-family: 'Gudea', sans-serif;
+	font-size:17px;
 	color: #222;
 }
 a{
@@ -55,13 +56,21 @@ a{
 	margin: 7px 0px 0px 0px !important;
 }
 h1,h2,h3,h4,h5,h6{
-	font-family:'Andada Italic' !important;
-	font-weight: bold;
+	font-family: 'WrongPerspective'; 
+	font-weight: normal;
 	&.block-title{
 		padding: 10px 0px 5px 0px;
 	}
 }
-
+h1{
+	font-size: 72px;
+}
+h2{
+	font-size:60px;
+}
+h3,h4{
+	font-size: 40px;
+}
 h1 small, h1 .small, h2 small, h2 .small, h3 small, h3 .small, h4 small, h4 .small, h5 small, h5 .small, h6 small, h6 .small, .h1 small, .h1 .small, .h2 small, .h2 .small, .h3 small, .h3 .small, .h4 small, .h4 .small, .h5 small, .h5 .small, .h6 small, .h6 .small {
     font-weight: normal;
     line-height: 1;
@@ -104,9 +113,9 @@ table td{
     &,
     &:hover,
     &:focus {
-      color: #000;
+      color: white;
       background-color: #7B4A94;
-      border-color: #e1b042; 
+      border-color: #371b46;
     }
   }
 }
@@ -140,7 +149,7 @@ table td{
 						  width: 100%;
 							.box-slide{
 								background: rgba(0,150,136,.75);
-								max-width: 520px;
+								max-width: 660px;
 								padding: 20px;
 								color: white;
 								.number-views{
@@ -166,6 +175,35 @@ table td{
 							margin-top: -30px;
 						}
 					}
+		}
+		#block-views-videos-block-1{
+			#edit-title-wrapper{
+						@extend .col-md-3;
+						@extend .col-xs-6;
+			}
+			.views-exposed-widget{
+						@extend .col-md-3;
+						@extend .col-xs-6;
+						.form-checkboxes {
+								border: 0px;
+								box-shadow: none;
+								.form-type-bef-checkbox{
+									@extend .col-sm-4;
+									min-height:60px;
+									input{
+										display: inline-block;
+										width: auto;
+										box-shadow: none;
+										margin-top: 0px;
+										height: 20px;
+									}
+									label{
+										font-weight: normal;
+										display: inline;
+									}
+								}
+						}
+			}
 		}
 		/* Views videos */
 		.pager-load-more{
@@ -243,6 +281,7 @@ table td{
 							box-shadow: none;
 							.form-type-bef-checkbox{
 								@extend .col-sm-4;
+								min-height:60px;
 								input{
 									display: inline-block;
 									width: auto;
@@ -252,6 +291,7 @@ table td{
 								}
 								label{
 									font-weight: normal;
+									display: inline;
 								}
 							}
 					}
@@ -359,54 +399,6 @@ View Category
 					.icon-wrapper{
 							height: 100%;
 							background-size: 100% 100%;
-
-							/*Población */
-							&.term-253,&.term-259{
-								background-image: url('../img/icons/poblacion/CATEGORIAS-23.png');
-							}
-							&.term-250,&.term-256{
-								background-image: url('../img/icons/poblacion/CATEGORIAS-25.png');
-							}
-							&.term-252,&.term-258{
-								background-image: url('../img/icons/poblacion/CATEGORIAS-27.png');
-							}
-							&.term-302,&.term-303{
-								background-image: url('../img/icons/poblacion/CATEGORIAS-28.png');
-							}
-							&.term-249,&.term-255{
-								background-image: url('../img/icons/poblacion/CATEGORIAS-24.png');
-							}
-							&.term-257,&.term-251{
-								background-image: url('../img/icons/poblacion/CATEGORIAS-26.png');
-							}
-							&.term-319,&.term-320{
-								background-image: url('../img/icons/poblacion/CATEGORIAS-29.png');
-							}
-							/* Saberes */
-							&.term-260,&.term-268{
-								background-image: url('../img/icons/saberes/CATEGORIAS-15.png');
-							}
-							&.term-261,&.term-269{
-								background-image: url('../img/icons/saberes/CATEGORIAS-18.png');
-							}
-							&.term-271,&.term-263{
-								background-image: url('../img/icons/saberes/CATEGORIAS-17.png');
-							}
-							&.term-262,&.term-270{
-								background-image: url('../img/icons/saberes/CATEGORIAS-16.png');
-							}
-							&.term-265,&.term-273{
-								background-image: url('../img/icons/saberes/CATEGORIAS-20.png');
-							}
-							&.term-264,&.term-272{
-								background-image: url('../img/icons/saberes/CATEGORIAS-19.png');
-							}
-							&.term-275,&.term-267{
-								background-image: url('../img/icons/saberes/CATEGORIAS-22.png');
-							}
-							&.term-266,&.term-274{
-								background-image: url('../img/icons/saberes/CATEGORIAS-21.png');
-							}
 					}
 				}
 			}
@@ -462,14 +454,23 @@ View Category
 				}
 	}
 	.categorys{
+		 margin: 25px 0px;
+		.wrapper-category{
 			text-align: center;
-			margin: 25px 0px;
-	.wrapper-category{
-			display: inline-block;
-			margin-right: 20px;
+				img{
+					display: inline-block;
+					&:hover{
+						background: rgba(153, 39, 176, .6);
+						border-radius: 64px;
+					}				
+				}	
+			.hovered{
+				display: none;
+			}
 			&:hover{
-				background: rgba(10, 10, 10, .1);
-    		border-radius: 64px;
+				.hovered{
+					display: block;
+				}
 			}
 		}
 	}
@@ -523,7 +524,7 @@ View Category
 }
 
 a.logo img {
-    height: 100px;
+    height: 56px;
 }
 
 li.ancla-link.active a{
@@ -579,6 +580,7 @@ li.ancla-link.active a{
 		ul{
 			&.menu{
 				margin-left: 20px;
+				margin-top: 5px;
 			}
 		}
 		.wrapper-llamada{
@@ -586,11 +588,11 @@ li.ancla-link.active a{
 			margin-left: 20px;
 			.btn{
 				color: white !important;
-				margin-top: 9px;
+				margin-top: 15px;
 			}
 		}
 		.search-menu{
-			margin-top: 8px;
+			margin-top: 14px;
 			margin-left: 20px;
 			float: right;
 			vertical-align: middle;;
@@ -700,15 +702,16 @@ footer{
 }
 
 .navbar-nav > li > a {
-    font-size: 13px;
+    font-size: 15px;
     margin-left: 10px;
-    padding: 10px 5px;
+    padding: 14px 6px 0px 5px;
     text-transform: uppercase;
     font-weight: bold;
 		&.active{
 			background: none !important;
 		}
 }
+
 
 #footer{
 	padding: 20px 0px;
@@ -718,7 +721,7 @@ footer{
 	.contact{
 		text-align: right;
 		h2{
-			font-size: 22px;
+			font-size: 40px;
 			margin-bottom: 0px;
 		}
 		ul{
@@ -748,6 +751,17 @@ footer{
 			text-align: center;
 		}
 }
+.view-videos{
+	.item-video{
+		h2{
+			font-size: 16px;
+			font-family: 'Gudea', sans-serif;
+			font-weight: bold;
+
+		}
+	}
+}
+
 
 
 

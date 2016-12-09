@@ -9,12 +9,8 @@
 				<div class="navbar-header">
 					<?php if ($logo): ?>
 					<a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-					  <!--<img src="<?php print $logo; ?>" alt="Logotipo de HumanaMente" />-->
+					  <img src="<?php print $logo; ?>" alt="Logotipo de HumanaMente" />
 					</a>
-					<?php endif; ?>
-
-					<?php if (!empty($site_name)): ?>
-					<a class="name navbar-brand hidden-sm" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
 					<?php endif; ?>
 
 					<!-- .btn-navbar is used as the toggle for collapsed navbar content -->

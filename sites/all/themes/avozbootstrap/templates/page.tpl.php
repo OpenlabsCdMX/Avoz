@@ -4,22 +4,14 @@
 ?>
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
 	<div class="container">
-		<?php if ($logo): ?>
-			<div class="logo-container ">
-				<div class="wrapper-logo">
-					<a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-						<img src="<?php print $logo; ?>" alt="Logotipo de HumanaMente" class="hidden-xs" />
-						<span class="show-xs hidden-lg hidden-md hidden-sm logo-text"><p>HumanaMente</p></span>
-					</a>
-				</div>
-			</div>
-		<?php endif; ?>
+
 		<div class="navbar-header">
 
-
-			<?php if (!empty($site_name)): ?>
-			<a class="name navbar-brand  hidden-sm" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
-			<?php endif; ?>
+					<?php if ($logo): ?>
+					<a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+					  <img src="<?php print $logo; ?>" alt="Logotipo de HumanaMente" />
+					</a>
+					<?php endif; ?>
 
 			<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

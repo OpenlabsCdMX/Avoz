@@ -45,25 +45,18 @@ $prefix=$language->prefix;
 				<?php print render($content['field_notes']);  ?>
 			</div>
 		<?php endif; ?>
-		<?php if(!empty($node->field_poblation['und'][0])) :?>
+		<?php dsm($node->field_knowlodge); if(!empty($node->field_knowlodge['und'][0])) :?>
 			<h2 class="sr-only"><?php print t('Categorías'); ?></h2>
-			<div class="categorys">
-				<?php foreach($node->field_poblation['und'] as $poblation): ?>
-								<?php if(!empty($poblation['taxonomy_term']->field_icono['und'][0]['uri'])): ?>
-									<div class="wrapper-category">
-											<a href="/<?php print $prefix?>/videos?field_poblation=<?php print $poblation['taxonomy_term']->tid; ?>">
-												<img class="img-responsive" alt="<?php print $poblation['taxonomy_term']->name; ?>" src="<?php print image_style_url('icono_categor_a',$poblation['taxonomy_term']->field_icono['und'][0]['uri']);?>"/>
-											</a>
-									</div>
-								<?php endif; ?>
-				<?php endforeach; ?>
-				<?php foreach($node->field_knowlodge['und'] as $know): ?>
-								<?php if(!empty($know['taxonomy_term']->field_icono['und'][0]['uri'])): ?>
-									<div class="wrapper-category">
+			<div class="categorys row">
+				<?php  foreach($node->field_knowlodge['und'] as $know): ?>
+								<?php   if(!empty($know['taxonomy_term']->field_icono['und'][0]['uri'])): ?>
+									<div class="wrapper-category col-xs-6 col-md-3">
 										<a href="/<?php print $prefix?>/videos?field_knowlodge=<?php print $know['taxonomy_term']->tid; ?>">
 											<img class="img-responsive" alt="<?php print $know['taxonomy_term']->name; ?>" src="<?php print image_style_url('icono_categor_a',$know['taxonomy_term']->field_icono['und'][0]['uri']);?>"/>
 										</a>
+										<div class="title-category hovered"><?php print $know['taxonomy_term']->name; ?></div>
 									</div>
+
 								<?php endif; ?>
 				<?php endforeach; ?>
 			</div>

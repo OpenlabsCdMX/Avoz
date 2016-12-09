@@ -37,7 +37,7 @@ h2{
 .page-node-9,
 .page-node-42,
 .page-node-43{
-
+	
 	#edit-field-notes-und-0-format{
 		display: none;
 	}
@@ -118,15 +118,28 @@ body.toolbar-drawer.navbar-is-fixed-top{
 			}
 		}
 	}
+
 	#edit-field-knowlodge-und{
 		display: inline-block;
 		margin-bottom: 20px;
-		.form-item-field-knowlodge-und-260{
+		.form-item-field-knowlodge-und-403{
 			margin-top: -5px;
 			margin-bottom: 0px;
 		} 
 		.form-type-checkbox{
 			@extend .col-md-4; 
+			height:60px !important;
+			input{
+				display: inline-block;
+				width: auto;
+				box-shadow: none;
+				margin-top: 0px;
+				height: 20px;
+			}
+			label{
+				font-weight: normal;
+				display: inline;
+			}
 		}
 	}					
 }

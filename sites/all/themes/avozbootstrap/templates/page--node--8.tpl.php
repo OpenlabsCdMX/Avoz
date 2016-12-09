@@ -2,20 +2,16 @@
 	global $language;
 	$prefix=$language->prefix;
 ?>
-<h1 class="sr-only">Co.Madre</h1>
+<h1 class="sr-only">Avóz</h1>
 <div id="main-content">
 	<div class="branding-area">
 		<header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
 			<div class="container">
 				<div class="navbar-header">
 					<?php if ($logo): ?>
-					<a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-					  <!--<img src="<?php print $logo; ?>" alt="Logotipo de HumanaMente" />-->
-					</a>
-					<?php endif; ?>
-
-					<?php if (!empty($site_name)): ?>
-					<a class="name navbar-brand hidden-sm" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
+						<a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+							<img src="<?php print $logo; ?>" alt="Logotipo de HumanaMente" />
+						</a>
 					<?php endif; ?>
 
 					<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -64,7 +60,7 @@
 		</header>
 		<div class="imagen-container">
 				<div class="container">
-						<img src="/sites/all/themes/avozbootstrap/img/llamada/comadre.jpg" alt="Dibujo alucibo a las mujeres afrodecendientes" class="img-responsive">
+						<img src="/sites/all/themes/avozbootstrap/img/llamada/avoz.png" alt="Dibujo alucibo a las mujeres afrodecendientes" class="img-responsive">
 				</div>
 		</div>
 		<div class="floor floor-cero colored" id="llamada">

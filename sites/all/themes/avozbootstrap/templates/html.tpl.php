@@ -56,9 +56,13 @@
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:500,400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
- <!-- <link rel="stylesheet" type="text/css" href="/sites/all/themes/avozbootstrap/fonts/andada/style.css"> -->
+
+  <!-- <link rel="stylesheet" type="text/css" href="/sites/all/themes/avozbootstrap/fonts/andada/style.css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Gudea:400,400i,700" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" media="all">
+  <link type="text/css" rel="stylesheet" href="/sites/all/themes/avozbootstrap/fonts/wrong-perspective/styles.css" media="all">
+
+
   <?php print $scripts; ?>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
